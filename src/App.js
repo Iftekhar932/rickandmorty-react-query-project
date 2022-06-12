@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import Characters from "./Components/Characters/Characters";
+
+// Create a client
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App container">
+        <Characters />
+      </div>
+    </QueryClientProvider>
   );
 }
 
 export default App;
+
+/* import "./App.css";
+import Characters from "./Components/Characters/Characters";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+// CREATE A NEW CLIENT
+const queryClient = new QueryClient();
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <div className="container">
+          <h1>Rick and Morty</h1>
+          <Characters />
+        </div>
+      </div>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
+
+ */
