@@ -30,15 +30,15 @@ const Characters = () => {
       <h1 className="text-center text-red-600 font-bold text-4xl py-4">
         Info about Rick & Morty cartoon characters
       </h1>
-      <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 p-4 gap-8 sm:gap-6">
+      <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 p-4 gap-8">
         {data.results.map((character) => (
           <Character character={character} key={character.id} />
         ))}
       </div>
 
-      <div className="flex justify-center m-2">
+      <div className="flex justify-center gap-2 m-2">
         <button
-          className="bg-gray-500 text-white px-4 py-2"
+          className="text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 border border-red-700"
           onClick={() => setPage((old) => old - 1)}
           disabled={page === 1}
         >
@@ -46,7 +46,7 @@ const Characters = () => {
         </button>
 
         <button
-          className="bg-gray-500 text-white px-4 py-2"
+          className="text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 border border-red-700"
           onClick={() => setPage((old) => old + 1)}
           disabled={isPreviousData || data.info.next === null}
         >
