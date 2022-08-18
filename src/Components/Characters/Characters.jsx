@@ -5,7 +5,7 @@ import Character from "../Character/Character";
 const Characters = () => {
   const [page, setPage] = useState(1);
 
-  const charactersFetcher = async ({ queryKey }, kobe) => {
+  const charactersFetcher = async ({ queryKey }) => {
     const response = await fetch(
       `https://rickandmortyapi.com/api/character?page=${queryKey[1]}`
     );
@@ -26,7 +26,7 @@ const Characters = () => {
   }
 
   return (
-    <div className="h-full w-full bg-slate-900 pb-2">
+    <div className="h-full w-full bg-slate-900 pb-2 font-bold">
       <h1 className="text-center text-red-600 font-bold text-4xl py-4">
         Info about Rick & Morty cartoon characters
       </h1>
@@ -38,7 +38,7 @@ const Characters = () => {
 
       <div className="flex justify-center gap-2 m-2">
         <button
-          className="text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 border border-red-700"
+          className="text-white bg-slate-800 px-4 py-2 border border-red-700 bg-gradient-to-br from-gray-800 hover:to-red-800"
           onClick={() => setPage((old) => old - 1)}
           disabled={page === 1}
         >
@@ -46,7 +46,7 @@ const Characters = () => {
         </button>
 
         <button
-          className="text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 border border-red-700"
+          className="text-white bg-slate-800 px-4 py-2 border border-red-700 bg-gradient-to-br from-gray-800 hover:to-red-800"
           onClick={() => setPage((old) => old + 1)}
           disabled={isPreviousData || data.info.next === null}
         >
